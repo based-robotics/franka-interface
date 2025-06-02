@@ -12,22 +12,23 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_compile_options(-Wall -Wextra)
 
-find_package(Eigen3 REQUIRED)
+find_package(Eigen3 REQUIRED NO_MODULE)
 find_package(Boost COMPONENTS program_options REQUIRED)
+find_package(Franka 0.9.2 REQUIRED)
 
 include_directories(${Boost_INCLUDE_DIRS})
 
 add_subdirectory(franka-interface)
 add_subdirectory(franka-interface-common)
-add_subdirectory(libfranka)
+# add_subdirectory(libfranka)
 
 add_executable(franka_interface src/franka_interface.cpp)
 
 target_link_libraries(franka_interface 
   franka-interface 
   franka-interface-common
-  Franka::Franka
-  Eigen3::Eigen3
+  franka
+  Eigen3::Eigen
   ${Boost_LIBRARIES}
 )
 

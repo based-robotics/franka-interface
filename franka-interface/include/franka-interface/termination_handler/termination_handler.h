@@ -4,7 +4,8 @@
 #include <iostream>
 #include <vector>
 #include <array>
-#include <Eigen/Dense>
+#include <Eigen/Core>
+#include <Eigen/Geometry>
 #include <franka/robot_state.h>
 #include <google/protobuf/message.h>
 

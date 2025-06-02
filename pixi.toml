@@ -1,0 +1,26 @@
+[workspace]
+authors = ["Lev Kozlov <kozlov.l.a10@gmail.com>"]
+channels = ["conda-forge", "robostack-staging"]
+name = "franka-interface"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+ros-noetic-desktop = ">=1.5.0,<2"
+ros-noetic-libfranka = ">=0.9.2,<0.10"
+protobuf = ">=4.21.12,<5"
+ros-noetic-franka-ros = ">=0.10.1,<0.11"
+pinocchio = ">=2.6.20,<3"
+cxx-compiler = ">=1.9.0,<2"
+cmake = "<4.0.0"
+pkg-config = ">=0.29.2,<0.30"
+
+[pypi-dependencies]
+catkin-tools = ">=0.9.5, <0.10"
+empy = "*"
+
+# shell activation
+[activation]
+scripts = ["catkin_ws/devel/setup.sh"]

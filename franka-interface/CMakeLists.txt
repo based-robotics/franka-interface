@@ -19,6 +19,7 @@ find_package(Threads REQUIRED)
 
 find_package(Boost COMPONENTS REQUIRED filesystem system thread)
 find_package(Protobuf REQUIRED)
+find_package(Franka REQUIRED)
 
 add_subdirectory(proto)
 
@@ -110,7 +111,7 @@ include_directories(include)
 # add_library(FrankaInterface::FrankaInterface ALIAS franka-interface)
 
 target_link_libraries(franka-interface PUBLIC
-  Eigen3::Eigen3
+  Eigen3::Eigen
   Threads::Threads
   rt
   proto

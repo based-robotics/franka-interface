@@ -18,7 +18,7 @@ find_package(catkin REQUIRED COMPONENTS
   franka_interface_msgs
   tf
 )
-find_package(Eigen3 REQUIRED)
+find_package(Eigen3 REQUIRED NO_MODULE)
 find_package(Protobuf REQUIRED)
 
 ## System dependencies are found with CMake's conventions

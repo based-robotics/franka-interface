@@ -10,7 +10,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 ## Dependencies
 # find_package(Poco REQUIRED COMPONENTS Net Foundation)
-find_package(Eigen3 REQUIRED)
+# find_package(Eigen3 REQUIRED NO_MODULE)
 
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
