@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="ft_ip" default="192.168.50.222"/>
+
+  <node name="franka_ft" pkg="franka_ft_sensor" type="netft_node" output="screen">
+    <param name="address" type="string" value="$(arg ft_ip)"/>
+    <param name="pub_rate_hz" type="double" value="1000.0"/>
+  </node>
+
+</launch>
