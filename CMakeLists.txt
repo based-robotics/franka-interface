@@ -15,6 +15,7 @@ add_compile_options(-Wall -Wextra)
 find_package(Eigen3 REQUIRED)
 find_package(Boost COMPONENTS program_options REQUIRED)
 
+include(GNUInstallDirs)
 include_directories(${Boost_INCLUDE_DIRS})
 
 add_subdirectory(franka-interface)
@@ -27,7 +28,7 @@ target_link_libraries(franka_interface
   franka-interface 
   franka-interface-common
   franka
-  Eigen3::Eigen3
+  Eigen3::Eigen
   ${Boost_LIBRARIES}
 )
 
