@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>franka_ft_sensor</name>
+  <version>0.1.0</version>
+  <description>ROS 2 Humble NetFT RDT → ROS bridge (ported from ROS1)</description>
+
+  <maintainer email="dom-iva@todo.todo">dom-iva</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>geometry_msgs</depend>
+  <depend>diagnostic_msgs</depend>
+  <depend>diagnostic_updater</depend>
+  <depend>std_msgs</depend>
+
+  <!-- Boost for asio + threads -->
+  <build_depend>boost</build_depend>
+  <exec_depend>boost</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>

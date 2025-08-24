@@ -486,6 +486,7 @@ environments:
       - conda: https://conda.anaconda.org/robostack-humble/linux-64/ros-humble-depthimage-to-laserscan-2.5.1-np126py311hea4e58e_13.conda
       - conda: https://conda.anaconda.org/robostack-humble/linux-64/ros-humble-desktop-0.10.0-np126py311hbc2a38a_13.conda
       - conda: https://conda.anaconda.org/robostack-humble/linux-64/ros-humble-diagnostic-msgs-4.9.0-np126py311hbc2a38a_13.conda
+      - conda: https://conda.anaconda.org/robostack-humble/linux-64/ros-humble-diagnostic-updater-4.0.6-np126py311hbc2a38a_13.conda
       - conda: https://conda.anaconda.org/robostack-humble/linux-64/ros-humble-domain-coordinator-0.10.0-np126py311hbc2a38a_13.conda
       - conda: https://conda.anaconda.org/robostack-humble/linux-64/ros-humble-dummy-map-server-0.20.5-np126py311hbc2a38a_13.conda
       - conda: https://conda.anaconda.org/robostack-humble/linux-64/ros-humble-dummy-robot-bringup-0.20.5-np126py311hbc2a38a_13.conda
@@ -8193,6 +8194,26 @@ packages:
   license: BSD-3-Clause
   size: 145966
   timestamp: 1753312186078
+- conda: https://conda.anaconda.org/robostack-humble/linux-64/ros-humble-diagnostic-updater-4.0.6-np126py311hbc2a38a_13.conda
+  sha256: 4fc9672908c15b3d286d69128ef6a94b34caf63673a764bdf0a0831387e90e4c
+  md5: e3634a3f5b4040d1bee5f5a9d19e9c5a
+  depends:
+  - python
+  - ros-humble-diagnostic-msgs
+  - ros-humble-rclcpp
+  - ros-humble-rclpy
+  - ros-humble-ros-workspace
+  - ros-humble-std-msgs
+  - ros2-distro-mutex 0.7.* humble_*
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=13
+  - libgcc >=13
+  - numpy >=1.26.4,<2.0a0
+  - ros2-distro-mutex >=0.7.0,<0.8.0a0
+  - python_abi 3.11.* *_cp311
+  license: BSD-3-Clause
+  size: 164177
+  timestamp: 1753313975331
 - conda: https://conda.anaconda.org/robostack-humble/linux-64/ros-humble-domain-coordinator-0.10.0-np126py311hbc2a38a_13.conda
   sha256: 19055d6b7c212e1a85fbc55ea65a3c195b6f4901103aedf99fd6a1acf1151358
   md5: 8932d8b6155c236c96643efaaa84a64b
