@@ -6,7 +6,7 @@ project (franka-interface
 
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -19,14 +19,14 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 add_subdirectory(franka-interface)
 add_subdirectory(franka-interface-common)
-add_subdirectory(libfranka)
+# add_subdirectory(libfranka)
 
 add_executable(franka_interface src/franka_interface.cpp)
 
 target_link_libraries(franka_interface 
   franka-interface 
   franka-interface-common
-  Franka::Franka
+  franka
   Eigen3::Eigen3
   ${Boost_LIBRARIES}
 )

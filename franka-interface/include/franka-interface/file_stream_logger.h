@@ -4,6 +4,7 @@
 #include <array>
 #include <fstream>
 #include <vector>
+#include <stdint.h>
 
 class FileStreamLogger {
  public:

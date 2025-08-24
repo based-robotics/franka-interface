@@ -1,5 +1,7 @@
 # Franka-Interface
 
+> This branch implements working ROS2 Humble adoption for franka-interface with pixi packaging for maximal reproducibility and ease of installation.
+
 This is a software package used for controlling and learning skills on the Franka Emika Panda Research Robot Arm.
 
 Installation Instructions and Robot Setup Instructions are also available here: [https://iamlab-cmu.github.io/franka-interface](https://iamlab-cmu.github.io/franka-interface)
@@ -8,9 +10,9 @@ To join the Discord community, click the link [here](https://discord.gg/r6r7dttM
 
 ## Requirements
 
-* A computer with the Ubuntu 18.04 Realtime Kernel and at least 1 ethernet port.
-* ROS Kinetic / Melodic
-* [Protocol Buffers](https://github.com/protocolbuffers/protobuf)
+* Ubuntu 20.04 or higher
+* [pixi](https://pixi.sh/latest/)
+* (optional) [direnv](https://direnv.net/) to automatically source pixi shell
 
 ## Computer Setup Instructions
 
@@ -20,46 +22,34 @@ To use this library, refer to [FrankaPy](https://github.com/iamlab-cmu/frankapy)
 1. The Control PC should have an OS with real time kernel. The instructions for setting up a computer with the 18.04 Realtime Kernel from scratch are located here: [control pc ubuntu setup guide](old_docs/control_pc_ubuntu_setup_guide.md)
 2. Instructions for setting up the computer specifically for Franka Robots is located here: [franka control pc setup guide](old_docs/franka_control_pc_setup_guide.md)
 
-## Install ProtoBuf
-
-We use both C++ and Python versions of protobufs so you would need to install Protobufs from source. 
-
-Do `nproc` to find out how many cores you have, and use that as the `N` number in the `make` command below:
-
-```shell
-sudo apt-get install autoconf automake libtool curl make g++ unzip
-wget https://github.com/protocolbuffers/protobuf/releases/download/v3.11.4/protobuf-all-3.11.4.zip
-unzip protobuf-all-3.11.4.zip
-cd protobuf-3.11.4
-./configure
-make -jN
-make check -jN
-sudo make install
-sudo ldconfig
-```
-
-See detailed instructions [here](https://github.com/protocolbuffers/protobuf/blob/master/src/README.md)
-
 ## Installation
 
 1. Clone Repo and its Submodules:
 
    ```bash
-   git clone --recurse-submodules https://github.com/iamlab-cmu/franka-interface.git   
+   git clone https://github.com/iamlab-cmu/franka-interface.git   
    cd franka-interface
+   git submodule update --init --recursive
    ```
-   
 All directories below are given relative to `/franka-interface`.
 
-2. Clone LibFranka corresponding to your robot version. For example if your firmware is 3.x use the following command:
+2. If you have direnv, allow it to automatically source the pixi shell:
    ```bash
-   bash ./bash_scripts/clone_libfranka.sh 3
+   direnv allow
    ```
-
-3. Build LibFranka
+   Alternatively, source the shell via running:
    ```bash
-   bash ./bash_scripts/make_libfranka.sh
+   pixi shell
    ```
+3. Build everything by running:
+   ```bash
+   pixi run build
+   ```
+   Under the hood, it does the following:
+   1. Applies diff to the `libfranka`
+   2. Builds `libfranka` and installs it in conda env
+   3. Build `franka-interface` and installs it in conda env
+   4. BUilds ROS2 workspace
 
 4. Build franka-interface
    ```bash

@@ -4,7 +4,7 @@ project (franka-interface
   LANGUAGES CXX
 )
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -19,6 +19,7 @@ find_package(Threads REQUIRED)
 
 find_package(Boost COMPONENTS REQUIRED filesystem system thread)
 find_package(Protobuf REQUIRED)
+# find_package(Franka REQUIRED)
 
 add_subdirectory(proto)
 
@@ -96,7 +97,7 @@ add_library(franka-interface SHARED
 )
 
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../franka-interface-common")
-include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../libfranka")
+# include_directories("${CMAKE_CURRENT_SOURCE_DIR}/../libfranka")
 include_directories("${CMAKE_CURRENT_BINARY_DIR}")
 include_directories(${PROTOBUF_INCLUDE_DIR})
 include_directories(include)
@@ -111,7 +112,7 @@ target_link_libraries(franka-interface PUBLIC
   rt
   proto
   franka-interface-common
-  Franka::Franka
+  franka
   ${Boost_LIBRARIES}
   ${Protobuf_LIBRARIES}
 )

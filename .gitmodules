@@ -4,3 +4,6 @@
 [submodule "ros2_ws/src/franka_ros2"]
 	path = ros2_ws/src/franka_ros2
 	url = https://github.com/firephinx/franka_ros2.git
+[submodule "third_party/libfranka"]
+	path = third_party/libfranka
+	url = git@github.com:frankarobotics/libfranka.git

@@ -1,0 +1,45 @@
+[workspace]
+authors = ["Lev Kozlov <kozlov.l.a10@gmail.com>"]
+channels = ["robostack-humble", "conda-forge"]
+name = "franka-interface"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+build = """bash bash_scripts/make_libfranka.sh && \
+    bash bash_scripts/make_franka_interface.sh && \
+    cd ros2_ws && colcon build --cmake-args \
+        -DPython_EXECUTABLE=$CONDA_PREFIX/bin/python \
+        -DPython3_EXECUTABLE=$CONDA_PREFIX/bin/python \
+        -DPYTHON_EXECUTABLE=$CONDA_PREFIX/bin/python \
+        -DPython3_FIND_STRATEGY=LOCATION \
+        -DPython_FIND_STRATEGY=LOCATION \
+        -DCMAKE_CXX_STANDARD=17
+"""
+
+[dependencies]
+ros-humble-desktop = ">=0.10.0,<0.11"
+protobuf = ">=5.29.3,<6"
+ros-humble-franka-ros2 = ">=1.0.0,<2"
+pinocchio = ">=3.7.0,<4"
+colcon-common-extensions = ">=0.3.0,<0.4"
+setuptools = ">=80.9.0,<81"
+compilers = ">=1.11.0,<2"
+make = ">=4.4.1,<5"
+ninja = ">=1.12.1,<2"
+python = ">=3.11,<3.12"
+cxx-compiler = ">=1.9.0,<2"
+cmake = ">=3.22,<3.27"
+pkg-config = ">=0.29.2,<0.30"
+catkin_tools = ">=0.9.5,<0.10"
+rosdep = ">=0.26.0,<0.27"
+numpy = "*"
+ros-humble-ament-cmake-clang-format = ">=0.12.12,<0.13"
+libprotobuf = ">=5.29.3,<6"
+
+[pypi-dependencies]
+empy = "*"
+
+# shell activation
+[activation]
+scripts = ["ros2_ws/install/setup.sh"]
