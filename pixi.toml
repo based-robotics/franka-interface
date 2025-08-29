@@ -8,7 +8,8 @@ version = "0.1.0"
 [tasks]
 build = """bash bash_scripts/make_libfranka.sh && \
     bash bash_scripts/make_franka_interface.sh && \
-    cd ros2_ws && colcon build --cmake-args \
+    cd ros2_ws && colcon build  \
+        --cmake-args \
         -DPython_EXECUTABLE=$CONDA_PREFIX/bin/python \
         -DPython3_EXECUTABLE=$CONDA_PREFIX/bin/python \
         -DPYTHON_EXECUTABLE=$CONDA_PREFIX/bin/python \

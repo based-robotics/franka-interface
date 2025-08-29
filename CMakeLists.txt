@@ -32,4 +32,18 @@ target_link_libraries(franka_interface
   ${Boost_LIBRARIES}
 )
 
-install(TARGETS franka_interface DESTINATION bin)
+# install(TARGETS franka_interface DESTINATION bin)
+
+include(GNUInstallDirs)
+
+# Force-install all libraries from the top-level (robust to subproject configs)
+install(TARGETS
+  franka-interface
+  franka-interface-common
+  proto
+  EXPORT franka_interface_targets
+  LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
+  INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+)

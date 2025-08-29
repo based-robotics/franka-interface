@@ -15,5 +15,8 @@ cmake -DCMAKE_BUILD_TYPE=Release .. \
     -DCMAKE_CXX_STANDARD=17 \
     -DCMAKE_CXX_STANDARD_REQUIRED=ON ..
 
-make -j$n_cores 
+# make -j$n_cores
+cmake --build . --config Release -j
+cmake --install .
+
 cd ..

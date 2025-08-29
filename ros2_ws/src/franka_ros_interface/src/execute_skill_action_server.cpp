@@ -9,7 +9,7 @@ namespace franka_ros_interface
       this,
       "~/execute_skill",
       std::bind(&ExecuteSkillActionServer::handle_goal, this, _1, _2),
-      std::bind(&ExecuteSkillActionServer::handle_cancel, this, _1),
+ //handle     std::bind(&ExecuteSkillActionServer::handle_cancel, this, _1),
       std::bind(&ExecuteSkillActionServer::handle_accepted, this, _1));
   }
 
