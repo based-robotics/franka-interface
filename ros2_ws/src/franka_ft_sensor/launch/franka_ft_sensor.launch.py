@@ -5,7 +5,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     return LaunchDescription([
-        DeclareLaunchArgument('address', default_value='172.16.0.12'),
+        DeclareLaunchArgument('ft_ip', default_value='172.16.0.12'),
         DeclareLaunchArgument('pub_rate_hz', default_value='976.0'),
         DeclareLaunchArgument('publish_wrench', default_value='false'),
         DeclareLaunchArgument('frame_id', default_value='base_link'),
@@ -17,7 +17,7 @@ def generate_launch_description():
             name='netft_node',
             output='screen',
             parameters=[{
-                'address': LaunchConfiguration('address'),
+                'address': LaunchConfiguration('ft_ip'),
                 'pub_rate_hz': LaunchConfiguration('pub_rate_hz'),
                 'publish_wrench': LaunchConfiguration('publish_wrench'),
                 'frame_id': LaunchConfiguration('frame_id'),
