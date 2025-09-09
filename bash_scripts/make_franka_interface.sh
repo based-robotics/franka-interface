@@ -12,11 +12,13 @@ cmake -DCMAKE_BUILD_TYPE=Release .. \
     -DCMAKE_PREFIX_PATH="$CONDA_PREFIX" \
     -DCMAKE_INCLUDE_PATH="$CONDA_PREFIX/include" \
     -DCMAKE_INSTALL_LIBDIR="$CONDA_PREFIX/lib" \
+    # -DCMAKE_INSTALL_INCLUDEDIR="$CONDA_PREFIX/include" \
+    -DCMAKE_INSTALL_BINDIR="$CONDA_PREFIX/bin" \
     -DCMAKE_CXX_STANDARD=17 \
     -DCMAKE_CXX_STANDARD_REQUIRED=ON ..
 
-# make -j$n_cores
-cmake --build . --config Release -j
-cmake --install .
+make -j$n_cores
+# cmake --build . --config Release -j
+# cmake --install .
 
 cd ..
